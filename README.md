@@ -148,6 +148,38 @@ GET /api/reports/export?type=excel    - Export as Excel
 
 ---
 
+## 📘 Swagger / OpenAPI 3 Documentation
+
+Swagger UI is available for each business service once it is running.
+
+| Service | Port | Swagger UI URL | API Docs (JSON) |
+|---|---|---|---|
+| User Service | 8081 | http://localhost:8081/swagger-ui/index.html | http://localhost:8081/v3/api-docs |
+| Portfolio Service | 8082 | http://localhost:8082/swagger-ui/index.html | http://localhost:8082/v3/api-docs |
+| Price Fetcher Service | 8083 | http://localhost:8083/swagger-ui/index.html | http://localhost:8083/v3/api-docs |
+| Alert Service | 8084 | http://localhost:8084/swagger-ui/index.html | http://localhost:8084/v3/api-docs |
+| Reporting Service | 8085 | http://localhost:8085/swagger-ui/index.html | http://localhost:8085/v3/api-docs |
+
+### 🔐 How to Authenticate in Swagger UI
+
+1. Start **User Service** and open http://localhost:8081/swagger-ui/index.html
+2. Use `POST /api/auth/register` to create a new user
+3. Use `POST /api/auth/login` to get a JWT token
+4. Click the **Authorize 🔒** button (top right of Swagger UI)
+5. Enter: `Bearer <your-jwt-token>` and click **Authorize**
+6. For Portfolio / Alert / Reporting services — also add `X-User-Id` header with your user ID
+
+### 📋 Swagger Features Included
+
+- ✅ JWT Bearer security scheme on all protected endpoints
+- ✅ Request/response schema with field descriptions and examples
+- ✅ All HTTP status codes documented (200, 201, 400, 401, 403, 404, 500)
+- ✅ Try-it-out enabled — test APIs directly from the browser
+- ✅ Realistic example values for all request bodies
+- ✅ Endpoint grouping by tags (Authentication, Portfolios, Holdings, Stock Prices, Alerts, Reports)
+
+---
+
 ## 🧠 Business Logic
 
 ### Gain/Loss Formula
